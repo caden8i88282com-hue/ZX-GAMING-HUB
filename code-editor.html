@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor - ZX-GAMING-HUB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+</head>
+<body>
+    <header>
+        <img src="ZX GAMING.png" alt="ZX GAMING Logo" style="height: 50px; margin-right: 20px;">
+        <h1>ZX-GAMING-HUB</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="code-editor.html">Code Editor</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Online Code Editor</h2>
+            <p>Write and test your code here!</p>
+            <textarea id="code-editor"></textarea>
+            <button id="run-btn">Run Code</button>
+            <div id="output"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 ZX-GAMING-HUB</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+            lineNumbers: true,
+            mode: 'javascript',
+            theme: 'monokai'
+        });
+
+        document.getElementById('run-btn').addEventListener('click', function() {
+            var code = editor.getValue();
+            try {
+                var result = eval(code);
+                document.getElementById('output').innerText = result;
+            } catch (e) {
+                document.getElementById('output').innerText = 'Error: ' + e.message;
+            }
+        });
+    </script>
+</body>
+</html>
