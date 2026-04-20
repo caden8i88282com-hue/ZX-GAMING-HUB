@@ -12,28 +12,47 @@ header {
     background-color: #800080;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(128, 0, 128, 0.5);
+    position: relative;
 }
 
 h1 {
     margin: 0;
     font-size: 2.5em;
     color: #fff;
+    text-align: center;
 }
 
 nav {
     margin-top: 10px;
+    text-align: center;
 }
 
-nav a {
+.tab-button {
+    background-color: #333;
     color: #fff;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-nav a:hover {
-    color: #c71585;
+.tab-button.active {
+    background-color: #800080;
+}
+
+.tab-button:hover {
+    background-color: #c71585;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
 }
 
 main {
